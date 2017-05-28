@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public interface IDBEmployee {
     Employee create(String name, String address, String email, String phone, String city,int work_id)throws SQLException;
     Employee read(int id) throws SQLException;
-    boolean update(Employee employee , int work_id) throws SQLException;
+    boolean update(Employee employee,int workId ) throws SQLException;
     boolean delete(int id)throws SQLException;
     ArrayList<Person> readAll() throws SQLException;
 }

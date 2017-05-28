@@ -28,7 +28,7 @@ public class EmployeeRead extends JFrame {
 	private JTextField tfPhone;
 	private JTextField tfCity;
 	private JTextField tfWorkId;
-	private EmployeeController empControl;
+	private EmployeeController empController;
 	private int currentId;
 	private JButton btnSearch;
 	private JButton btnBack;
@@ -58,8 +58,7 @@ public class EmployeeRead extends JFrame {
 	}
 	
 	private void actions() {
-		
-		
+		EmployeeController empController = new EmployeeController();
 		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -93,7 +92,7 @@ public class EmployeeRead extends JFrame {
 		}
 			
 		try {
-			String splitEmployee = empControl.read(currentId);
+			String splitEmployee = empController.read(currentId);
 			String[] result = splitEmployee.split(",");
 			if(result.length != 0) {
 				tfName.setText(result[0].substring(5));
@@ -144,7 +143,7 @@ public class EmployeeRead extends JFrame {
 	
 	private void design() {
 		
-		EmployeeController empController = new EmployeeController();
+		
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 845, 494);

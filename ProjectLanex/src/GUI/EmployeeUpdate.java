@@ -61,6 +61,8 @@ public class EmployeeUpdate extends JFrame {
 	
 	private void actions(){
 		
+		EmployeeController empControl = new EmployeeController();
+		
 		btnBack.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				dispose();
@@ -119,7 +121,22 @@ public class EmployeeUpdate extends JFrame {
 				String currentEmail = tfEmail.getText();
 				String currentPhone = tfPhone.getText();
 				String currentCity = tfCity.getText();
-				//if(empControl.update(new Employee(currentName,currentAddress,currentEmail,currentPhone,currentCity)));
+				
+				try{
+					
+				
+				if(empControl.update(new Employee(currentName,currentAddress,currentEmail,currentPhone,currentCity),currentId));
+				clearFields();
+				JOptionPane.showMessageDialog(null, "Operation finished with success!!");
+				
+			}catch(Exception ee) {
+				//empControl.getErrors().add(e.getMessage());
+				JOptionPane optionPane = new JOptionPane("You've got the following error:\n" + ee.getMessage(), JOptionPane.ERROR_MESSAGE);    
+				JDialog dialog = optionPane.createDialog("Failure");
+				dialog.setAlwaysOnTop(true);
+				dialog.setVisible(true);
+				//empControl.removeErrorMessages();
+			}
 				
 			}
 		});

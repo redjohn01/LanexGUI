@@ -43,9 +43,9 @@ public class EmployeeController {
             }
         }
 
-        public boolean update(Employee employee , int work_id) {
+        public boolean update(Employee employee, int workId ) {
             try{
-                dbEmployee.update(employee, work_id);
+                dbEmployee.update(employee,workId);
                 return true;
             }catch(SQLException e) {
                 return false;

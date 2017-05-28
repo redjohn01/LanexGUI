@@ -23,7 +23,7 @@ public class DBEmployee implements IDBEmployee {
 
     @Override
     public Employee create(String name, String address, String email, String phone, String city,int work_id)throws SQLException{
-        Employee employee = new Employee(name, address, email, phone, city);
+        Employee employee = new Employee();
         String sql = String.format("INSERT INTO person (name, address, email, phone, city, category) VALUES ('%s', '%s', '%s', '%s', '%s', 1)", name, address, email, phone, city);
         try{
             Connection conn = DBConnection.getInstance().getDBcon();
@@ -74,7 +74,7 @@ public class DBEmployee implements IDBEmployee {
 
 
     @Override
-    public boolean update(Employee employee , int work_id) throws SQLException{
+    public boolean update(Employee employee, int workId ) throws SQLException{
         try {
             Connection conn = DBConnection.getInstance().getDBcon();
             String name = employee.getName();
